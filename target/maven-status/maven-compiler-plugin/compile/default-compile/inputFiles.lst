@@ -23,7 +23,6 @@ W:\WS-Final\spring-boot-demo\src\main\java\es\hospital\facade\dto\ConsultaFacade
 W:\WS-Final\spring-boot-demo\src\main\java\es\hospital\dao\IPersonalDaoSrv.java
 W:\WS-Final\spring-boot-demo\src\main\java\es\hospital\facade\dto\Medico.java
 W:\WS-Final\spring-boot-demo\src\main\java\es\hospital\facade\PersonalSrv.java
-W:\WS-Final\spring-boot-demo\src\main\java\es\hospital\facade\dto\SociosFacade.java
 W:\WS-Final\spring-boot-demo\src\main\java\es\hospital\business\PersonalBusinessImplSrv.java
 W:\WS-Final\spring-boot-demo\src\main\java\es\hospital\facade\dto\AnalisisFacade.java
 W:\WS-Final\spring-boot-demo\src\main\java\es\hospital\dao\util\AlertasCorreo.java

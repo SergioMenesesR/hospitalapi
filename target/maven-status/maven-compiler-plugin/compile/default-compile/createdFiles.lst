@@ -6,7 +6,6 @@ es\hospital\dao\AnalisisDaoSrvImpl.class
 es\hospital\dao\util\PasswordGenerator.class
 es\hospital\facade\dto\PacienteFacade.class
 es\hospital\business\IAnalisisBusinessSrv.class
-es\hospital\facade\dto\SociosFacade.class
 es\hospital\dao\IMedicosPacientesDaoSrv.class
 es\hospital\dao\dto\PersonalHospital.class
 es\hospital\facade\dto\Medico.class
