@@ -1,0 +1,5 @@
+
+Tfg/
+*.class
+*.jar
+target/classes/es/hospital/MyApplication.class
