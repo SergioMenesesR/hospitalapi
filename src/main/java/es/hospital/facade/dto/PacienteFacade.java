@@ -3,9 +3,6 @@ package es.hospital.facade.dto;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.validation.constraints.NotNull;
-
 public class PacienteFacade extends PacientesFacadeIn{
 		
 	private Date ultimaVisita; 

@@ -1,9 +1,5 @@
 package es.hospital.facade.dto;
 
-import java.util.Date;
-
-import es.hospital.dao.dto.Analisis;
-
 public class ConsultaFacadeIn {
 	private int idMedico;
     private String motivoVisita;    

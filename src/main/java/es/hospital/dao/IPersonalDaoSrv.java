@@ -6,7 +6,6 @@ import es.hospital.dao.dto.PersonalHospital;
 import es.hospital.facade.dto.Admin;
 import es.hospital.facade.dto.Login;
 import es.hospital.facade.dto.Medico;
-import es.hospital.facade.dto.PacienteFacade;
 
 public interface IPersonalDaoSrv {
 	List<Medico> getAllMedicos();

@@ -2,7 +2,6 @@ package es.hospital.business;
 
 import java.util.List;
 
-import es.hospital.dao.dto.Paciente;
 import es.hospital.facade.dto.AnalisisFacade;
 import es.hospital.facade.dto.ConsultaFacade;
 import es.hospital.facade.dto.ConsultaFacadeIn;

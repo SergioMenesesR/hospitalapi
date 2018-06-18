@@ -6,7 +6,6 @@ import es.hospital.dao.dto.MedicosPacientes;
 import es.hospital.dao.dto.Paciente;
 import es.hospital.facade.dto.AnalisisFacade;
 import es.hospital.facade.dto.Login;
-import es.hospital.facade.dto.PacienteFacade;
 import es.hospital.facade.dto.PacientesFacadeIn;
 
 public interface IPacientesDaoSrv {

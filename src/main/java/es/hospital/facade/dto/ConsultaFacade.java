@@ -2,13 +2,6 @@ package es.hospital.facade.dto;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 import es.hospital.dao.dto.Analisis;
 
 public class ConsultaFacade {

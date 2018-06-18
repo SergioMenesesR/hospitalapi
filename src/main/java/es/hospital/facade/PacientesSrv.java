@@ -1,15 +1,13 @@
 package es.hospital.facade;
 
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
-import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,26 +16,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.mysql.cj.jdbc.exceptions.SQLError;
-
 import es.hospital.business.IPacientesBusinessSrv;
-import es.hospital.dao.IMedicosPacientesDaoSrv;
-import es.hospital.dao.IPacientesDaoSrv;
-import es.hospital.dao.IPersonalDaoSrv;
-import es.hospital.dao.dto.Analisis;
-import es.hospital.dao.dto.Article;
-import es.hospital.dao.dto.MedicosPacientes;
-import es.hospital.dao.dto.Paciente;
-import es.hospital.dao.dto.PersonalHospital;
-import es.hospital.dao.dto.Socios;
 import es.hospital.facade.dto.AnalisisFacade;
 import es.hospital.facade.dto.ConsultaFacade;
 import es.hospital.facade.dto.ConsultaFacadeIn;
 import es.hospital.facade.dto.Login;
-import es.hospital.facade.dto.Medico;
 import es.hospital.facade.dto.PacienteFacade;
 import es.hospital.facade.dto.PacientesFacadeIn;
-import es.hospital.facade.dto.SociosFacade;
 
 @Controller
 @RequestMapping("api")
@@ -74,6 +59,7 @@ public class PacientesSrv {
 		}
 		
 	}
+	@CrossOrigin
 	@PostMapping("paciente")
 	public ResponseEntity<?> addPaciente(@RequestBody PacientesFacadeIn paciente, UriComponentsBuilder builder) {
 		try {
@@ -86,7 +72,7 @@ public class PacientesSrv {
 		}
 	}
 	
-	
+	@CrossOrigin
 	@PutMapping("paciente/{id}")
 	public ResponseEntity<?> updateArticle(@PathVariable("id") int idPaciente ,@RequestBody PacientesFacadeIn paciente, UriComponentsBuilder builder) {
 		try {
@@ -100,7 +86,7 @@ public class PacientesSrv {
 		}
 		
 	}
-	
+	@CrossOrigin
 	@PostMapping("paciente/{id}/consulta")
 	public ResponseEntity<?> addConsulta(@PathVariable("id") int idPaciente,
 			@RequestBody ConsultaFacadeIn historial, UriComponentsBuilder builder) {
@@ -111,7 +97,7 @@ public class PacientesSrv {
 			return new ResponseEntity<String>(sql.getMessage(),HttpStatus.BAD_REQUEST);
 		}
 	}
-	
+	@CrossOrigin
 	@PostMapping("paciente/consulta/{id}/analisis")
 	public ResponseEntity<?> addAnalisis(@PathVariable("id") int idConsulta,
 			@RequestBody AnalisisFacade analisis, UriComponentsBuilder builder) {
@@ -122,7 +108,7 @@ public class PacientesSrv {
 			return new ResponseEntity<String>(sql.getMessage(),HttpStatus.BAD_REQUEST);
 		}
 	}
-	
+	@CrossOrigin
 	@PostMapping("pacienteLogin")
 	public ResponseEntity<?> checkLogin(@RequestBody Login login) {
 		try {

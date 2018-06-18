@@ -1,7 +1,6 @@
 package es.hospital.dao.mapper;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +9,9 @@ import org.springframework.stereotype.Component;
 import es.hospital.dao.IAnalisisDaoSrv;
 import es.hospital.dao.IMedicosPacientesDaoSrv;
 import es.hospital.dao.IPersonalDaoSrv;
-import es.hospital.dao.dto.Analisis;
 import es.hospital.dao.dto.MedicosPacientes;
 import es.hospital.dao.dto.Paciente;
 import es.hospital.dao.dto.PersonalHospital;
-import es.hospital.dao.util.PasswordGenerator;
 import es.hospital.facade.dto.Admin;
 import es.hospital.facade.dto.ConsultaFacade;
 import es.hospital.facade.dto.ConsultaFacadeIn;

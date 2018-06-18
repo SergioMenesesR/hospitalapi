@@ -9,8 +9,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import es.hospital.dao.dto.MedicosPacientes;
-import es.hospital.dao.dto.Paciente;
-import es.hospital.dao.dto.Socios;
 
 @Transactional
 @Repository

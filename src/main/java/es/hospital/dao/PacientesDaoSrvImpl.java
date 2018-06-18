@@ -1,6 +1,5 @@
 package es.hospital.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -11,14 +10,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import es.hospital.dao.dto.Analisis;
-import es.hospital.dao.dto.Article;
 import es.hospital.dao.dto.MedicosPacientes;
 import es.hospital.dao.dto.Paciente;
 import es.hospital.dao.mapper.MapperDao;
 import es.hospital.facade.dto.AnalisisFacade;
-import es.hospital.facade.dto.ConsultaFacade;
 import es.hospital.facade.dto.Login;
-import es.hospital.facade.dto.PacienteFacade;
 import es.hospital.facade.dto.PacientesFacadeIn;
 
 @Transactional

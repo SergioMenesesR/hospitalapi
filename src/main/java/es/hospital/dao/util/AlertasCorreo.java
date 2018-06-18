@@ -1,7 +1,5 @@
 package es.hospital.dao.util;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Properties;
 
 import javax.mail.Message;
