@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,14 +20,14 @@ public class AnalisisSrv {
 	
 	@Autowired
 	private IAnalisisBusinessSrv analisisBusness;
-	
+	@CrossOrigin
 	@GetMapping("analisis")
 	public ResponseEntity<List<Analisis>> getAllAnalisis() {
 		List<Analisis> list = analisisBusness.getAllAnalisis();		
 		return new ResponseEntity<List<Analisis>>(list, HttpStatus.OK);
 	}	
 	
-	
+	@CrossOrigin
 	@GetMapping("analisis/{id}")
 	public ResponseEntity<Analisis> getAnalisisById(@PathVariable("id") Integer id) {
 		Analisis response = analisisBusness.getAnalisisById(id);

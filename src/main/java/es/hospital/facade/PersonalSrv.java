@@ -34,7 +34,7 @@ public class PersonalSrv {
 
 	@Autowired
 	IPersonalBusinessImpl business;
-
+	@CrossOrigin
 	@GetMapping("personal/{id}")
 	public ResponseEntity<?> getPersonal(@PathVariable("id") int idPersonal) {
 		PersonalHospital response = business.getPersonal(idPersonal);
@@ -51,7 +51,7 @@ public class PersonalSrv {
 		}
 
 	}
-
+	@CrossOrigin
 	@GetMapping("medico/{id}/pacientes")
 	public ResponseEntity<?> getPacientesPorMedico(@PathVariable("id") int idMedico) {
 		List<Paciente> res = business.getPacientesPorMedico(idMedico);

@@ -32,7 +32,7 @@ public class PacientesSrv {
 	IPacientesBusinessSrv business;
 	
 	
-	
+	@CrossOrigin
 	@GetMapping("pacientes")
 	public ResponseEntity<?> getAllPacientes() {
 		try {
@@ -48,7 +48,7 @@ public class PacientesSrv {
 			return new ResponseEntity<String>(e.getCause().toString(),HttpStatus.BAD_REQUEST);
 		}
 	}
-	
+	@CrossOrigin
 	@GetMapping("paciente/{id}")
 	public ResponseEntity<?> getPaciente(@PathVariable("id") int idPaciente) {
 		PacienteFacade response = business.getPaciente(idPaciente);		
