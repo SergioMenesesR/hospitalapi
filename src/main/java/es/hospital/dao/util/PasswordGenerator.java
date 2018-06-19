@@ -1,5 +1,8 @@
 package es.hospital.dao.util;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class PasswordGenerator {
 	public static String NUMEROS = "0123456789";
 	 

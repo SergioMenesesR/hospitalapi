@@ -13,6 +13,8 @@ import es.hospital.dao.dto.Analisis;
 import es.hospital.dao.dto.MedicosPacientes;
 import es.hospital.dao.dto.Paciente;
 import es.hospital.dao.mapper.MapperDao;
+import es.hospital.dao.util.AlertasCorreo;
+import es.hospital.dao.util.PasswordGenerator;
 import es.hospital.facade.dto.AnalisisFacade;
 import es.hospital.facade.dto.Login;
 import es.hospital.facade.dto.PacientesFacadeIn;
@@ -24,7 +26,10 @@ public class PacientesDaoSrvImpl implements IPacientesDaoSrv {
 	private EntityManager entityManager;
 	@Autowired
 	MapperDao mapper;
-	@Autowired IMedicosPacientesDaoSrv consultasDao;
+	@Autowired
+	IMedicosPacientesDaoSrv consultasDao;
+	@Autowired
+	AlertasCorreo correo;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -55,8 +60,17 @@ public class PacientesDaoSrvImpl implements IPacientesDaoSrv {
 	@Override
 	public Paciente addPaciente(PacientesFacadeIn paciente) {
 		Paciente p = mapper.converterToPacienteDao(paciente);
-		p.setPass("1234");
+		p.setPass(PasswordGenerator.getPassword(
+				PasswordGenerator.MINUSCULAS+
+				PasswordGenerator.MAYUSCULAS+
+				PasswordGenerator.ESPECIALES,10));
 		entityManager.persist(p);
+		if(p.getCorreo()!=null) {
+			correo.sendEmail("tfggs2018hospital@gmail.com", "Bienvenido!", "Bienvenido, "+p.getNombre()+""
+					+ "\nAcceda a nuestra pagina web para poder ver todas sus consultas."
+					+ "\nContraseña: "+p.getPass());
+		}
+		
 		return p;
 	}
 
@@ -81,11 +95,14 @@ public class PacientesDaoSrvImpl implements IPacientesDaoSrv {
 		res.setRelacion(pa.getRelacion());
 		res.setTelfContacto(pa.getTelfContacto());
 		entityManager.flush();
+		correo.sendEmail("tfggs2018hospital@gmail.com", "Actualizado!", "Hola, "+res.getNombre()+""
+				+ "\nSus datos se han actualizado.");
 		return res;
 	}
 
 	@Override
 	public MedicosPacientes addConsulta(MedicosPacientes mp) {
+		correo.sendEmail("tfggs2018hospital@gmail.com", "Nueva consulta!", "Acceda para ver su nueva consulta");
 		entityManager.persist(mp);
 		return mp;
 	}
@@ -97,6 +114,7 @@ public class PacientesDaoSrvImpl implements IPacientesDaoSrv {
 		entityManager.persist(analisis);
 		MedicosPacientes mp=consultasDao.getHistoriale(idConsulta);
 		mp.setAnalisis(analisis.getId_analisis()+"");
+		correo.sendEmail("tfggs2018hospital@gmail.com", "Nuevo analisis!", "Acceda para consultar su nuevo analisis");
 		return mp;
 	}
 

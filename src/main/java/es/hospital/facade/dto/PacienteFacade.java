@@ -6,8 +6,15 @@ import java.util.List;
 public class PacienteFacade extends PacientesFacadeIn{
 		
 	private Date ultimaVisita; 
+	private int id;
 	
-    public Date getUltimaVisita() {
+    public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public Date getUltimaVisita() {
 		return ultimaVisita;
 	}
 	public void setUltimaVisita(Date ultimaVisita) {

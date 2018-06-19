@@ -31,7 +31,12 @@ public class MedicosPacientesDaoSrvImpl implements IMedicosPacientesDaoSrv {
 	@Override
 	public List<MedicosPacientes> getAllHistorialesPorPaciente(int idPaciente) {
 		String hql = "FROM MedicosPacientes mp where mp.idPaciente="+idPaciente+" order by mp.fecha desc";
-		return (List<MedicosPacientes>) entityManager.createQuery(hql).getResultList();
+		List<MedicosPacientes> res=entityManager.createQuery(hql).getResultList();
+		System.out.println(res);
+		if(res!=null) {
+			return res;
+		}
+		return null;
 	}
 
 }

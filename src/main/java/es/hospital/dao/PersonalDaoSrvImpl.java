@@ -82,7 +82,6 @@ public class PersonalDaoSrvImpl implements IPersonalDaoSrv {
 	@Override
 	public Medico addMedico(Medico medico) {
 		PersonalHospital ph=mapper.converterToPersonalHospital(medico);
-		System.out.println("DNI: "+ph.getDni());
 		ph.setPass(PasswordGenerator.getPassword(
 				PasswordGenerator.MINUSCULAS+
 				PasswordGenerator.MAYUSCULAS+
@@ -90,10 +89,8 @@ public class PersonalDaoSrvImpl implements IPersonalDaoSrv {
 		System.out.println("------Contraseña generada:  -"+ph.getPass()+"-");
 		entityManager.persist(ph);	
 		System.out.println("Todo OK");
-//		if(ph!=null) {
-//			String body="Bienvenido, su contraseña es: "+ph.getPass();
-//			correo.sendEmail(ph.getCorreo(), AlertasCorreo.SUBJECT_NEW, body);
-//		}
+		correo.sendEmail("tfggs2018hospital@gmail.com", "Bienvenido!", "Bienvenido, "+ph.getNombre()+""
+		+ "\nContraseña: "+ph.getPass());
 		return mapper.converterToMedico(ph);
 	}
 

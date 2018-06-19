@@ -1,7 +1,6 @@
 package es.hospital.facade.dto;
 
 public class PacientesFacadeIn {
-	private int id;
 	private String nombre;	
 	private String apellido1;    
     private String apellido2;
@@ -20,12 +19,7 @@ public class PacientesFacadeIn {
     private String antecedentesFamiliares;    
     private String observaciones;
     
-    public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+    
 	public String getNombre() {
 		return nombre;
 	}

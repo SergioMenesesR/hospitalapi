@@ -1,6 +1,7 @@
 package es.hospital.dao.mapper;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +51,6 @@ public class MapperDao {
 		res.setDni(pa.getDni());
 		res.setCorreo(pa.getEmail());
 		res.setEnfermedades(pa.getEnfermedades());
-		res.setId_paciente(pa.getId());
 		res.setNumMovil(pa.getMovil());
 		res.setNombre(pa.getNombre());
 		res.setNombrePersonaContacto(pa.getNomContacto());
@@ -85,12 +85,19 @@ public class MapperDao {
 		res.setRelacion(pa.getRelacion());
 		res.setTelfContacto(pa.getTelfContacto());
 		List<MedicosPacientes> listaHistoriales = historialDao.getAllHistorialesPorPaciente(res.getId());
-		List<ConsultaFacade> historialesPaciente = new ArrayList<ConsultaFacade>();
-		for (MedicosPacientes x : listaHistoriales) {
-			historialesPaciente.add(converterToHistorial(x));
+		List<ConsultaFacade> prueba = new ArrayList<ConsultaFacade>();
+		if(listaHistoriales.size()!=0) {
+			List<ConsultaFacade> historialesPaciente = new ArrayList<ConsultaFacade>();
+			for (MedicosPacientes x : listaHistoriales) {
+				historialesPaciente.add(converterToHistorial(x));
+			}
+			res.setHistoriales(historialesPaciente);
+			res.setUltimaVisita(listaHistoriales.get(0).getFecha());
+		}else {
+			res.setHistoriales(prueba);
+			res.setUltimaVisita(null);
 		}
-		res.setHistoriales(historialesPaciente);
-		res.setUltimaVisita(listaHistoriales.get(0).getFecha());
+		
 		return res;
 	}
 
